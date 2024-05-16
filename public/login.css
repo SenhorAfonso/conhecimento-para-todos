@@ -1,0 +1,91 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #05445e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  margin-left: 300px;
+  width: 500px;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.containerPalavra {
+  display: flex;
+  align-items: center;
+  margin-left: 120px;
+  width: 500px;
+}
+
+.shadow-container {
+  margin-bottom: 400px;
+  width: 500px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.box {
+  display: none;
+}
+
+#login-box {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+h2 {
+  text-align: center;
+}
+
+p {
+  font-size: 18px;
+}
+
+.textbox {
+  margin-bottom: 15px;
+}
+
+.textbox input {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #5cb85c;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #4cae4c;
+}
+
+p {
+  text-align: center;
+}
+
+a {
+  color: #5cb85c;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
