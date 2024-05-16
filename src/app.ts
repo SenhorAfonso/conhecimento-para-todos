@@ -3,6 +3,7 @@ import server from './server';
 import Database from './infra/database/connect';
 import serverConfig from './config/serverConfig';
 
+
 class App {
   private serverPort: number = Number(serverConfig.SERVER_PORT!);
   private databaseURI: string = serverConfig.DATABASE_URI!;
@@ -17,6 +18,8 @@ class App {
       console.log(`Server is listening at ${this.serverPort} port`);
     });
   }
+
+
 
 }
 
