@@ -1,5 +1,6 @@
 import server from './server';
 
+
 class App {
 
   constructor() {
@@ -12,6 +13,8 @@ class App {
       console.log('Server is listening at 3000 port');
     });
   }
+
+
 
 }
 
