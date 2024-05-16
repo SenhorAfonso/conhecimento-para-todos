@@ -1,6 +1,6 @@
 export interface UserType{
-    name: String
-    birth: String
-    email: String
-    password: String
+    name: string
+    birth: string
+    email: string
+    password: string
 }
