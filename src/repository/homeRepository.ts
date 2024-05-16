@@ -1,5 +1,5 @@
-import coursesModel from '../models/coursesModel';
 import mongoose from 'mongoose';
+import coursesModel from '../models/coursesModel';
 
 class HomeRepository {
 
