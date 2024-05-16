@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/home/css/home.css">
+    <title>Document</title>
+  </head>
+  <body>
+
+    <nav class="home-navbar">
+      <img class="home-navbar-img" src="/home/img/homepage-logo.png" alt>
+      <form class="home-navbar-form" action="/courses/search">
+        <input name="search-course" type="text">
+        <button type="submit"></button>
+      </form>
+      <a href="/profile/">
+        <img class="home-navbar-profile-pic" src="/home/img/profile-pic.png"
+          alt>
+      </a>
+    </nav>
+
+    <main>
+
+      <h1 class="home-title">Princípais cursos sobre <%= query %>.</h1>
+
+      <% if (courses) { %>
+      <div class="course-container">
+        <div class="courses-row">
+          <% courses.forEach(course => { %>
+          <div class="course-item">
+            <a href="<%= course.src %>">
+              <img id="<%= course.title %>" class="course-image"
+                src="/home/img/image.png" alt>
+            </a>
+            <label for="<%= course.title %>"></label>
+            <p class="course-title"><%= course.title %></p>
+            <p class="course-instructor"><a
+                href="/courses/instrutor/<%= course.creator %>"><%=
+                course.creator %></a></p>
+            <p class="course-rating">
+              <span>XXXXX</span> <span>42</span>
+            </p>
+          </div>
+
+          <% }) %>
+        </div>
+      </div>
+      <% } %>
+
+    </main>
+  </body>
+</html>
+
