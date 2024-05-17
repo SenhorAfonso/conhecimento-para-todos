@@ -1,5 +1,6 @@
 import express from 'express';
 import path from 'node:path';
+import homeRouter from './routes/homeRoutes';
 
 class Server {
   public server: express.Application;
@@ -14,9 +15,8 @@ class Server {
     this.server.use(express.static(path.join(__dirname, '../public')));
     this.server.set('view engine', 'ejs');
     this.server.set('views', path.join(__dirname, '../views'));
-    this.server.use('/', (req, res) => {
-      res.send('Remove me!');
-    });
+    this.server.use('', homeRouter);
+    this.server.use('/courses', homeRouter);
   }
 
 }

@@ -1,29 +1,18 @@
-import express from 'express';
-import path from 'path';
+import server from './server';
 
-const app = express();
-const port = process.env.PORT || 3001;
+class App {
 
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+  constructor() {
+    this.start();
+  }
 
-app.use(express.static(path.join(__dirname, '../public')));
-app.use(express.urlencoded({ extended: true }));
+  private start() {
+    // connect to database
+    server.listen(3000, () => {
+      console.log('Server is listening at 3000 port');
+    });
+  }
 
-app.get('/', (req, res) => {
-  res.render('login');
-});
+}
 
-app.post('/login', (req, res) => {
-  const { username, password } = req.body;
-  res.send(`Login realizado com sucesso! Usuário: ${username}`);
-});
-
-app.post('/register', (req, res) => {
-  const { newUsername, newPassword } = req.body;
-  res.send(`Cadastro realizado com sucesso! Novo usuário: ${newUsername}`);
-});
-
-app.listen(port, () => {
-  console.log(`Servidor rodando em http://localhost:${port}`);
-});
+new App();
