@@ -1,0 +1,54 @@
+.home-navbar {
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+
+  width: 100%;
+  height: 10%;
+
+  gap: 10%;
+
+  box-shadow: 0px 0px 30px #05445E;
+}
+
+.home-navbar-img {
+  margin-left: 3%;
+  height: 80px;
+}
+
+.home-navbar-form {
+  position: relative;
+}
+
+.home-navbar-form > input {
+  height: 44px;
+  width: 800px;
+  border: 2px solid #75E6DA;
+  border-radius: 35px;
+  font-size: 120%;
+  padding-left: 20px;
+}
+
+.home-navbar-form > button {
+  position: absolute;
+  margin-left: -6%;
+
+  top: 17%;
+  height: 30px;
+  width: 30px;
+  border: 0px;
+
+  background-image: url('/home/img/search-button.png');
+  background-size: cover;
+}
+
+.home-navbar-form > button:hover {
+  cursor: pointer
+}
+
+.home-navbar-profile-pic {
+  margin-left: 450%;
+  justify-self: flex-end;
+  height: 75px;
+}
