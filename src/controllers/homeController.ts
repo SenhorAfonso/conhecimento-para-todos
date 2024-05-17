@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import path from 'node:path';
 import HomeService from '../services/homeService';
+import homeQueryObject from '../interfaces/home/queryObjetc';
 
 class HomeController {
 
@@ -16,16 +17,18 @@ class HomeController {
     req: Request,
     res: Response
   ) {
-    const { topic } = req.query as { topic: string };
+    const { topic, rating, instructorName } = req.query as homeQueryObject;
     const search = req.query['search-course'] as string;
-    let query: string;
+    const query: homeQueryObject = {};
 
     if (topic) {
-      query = topic;
+      query.topic = topic;
     } else {
-      query = search;
+      query.topic = search;
     }
 
+    query.instructorName = instructorName;
+    query.rating = Number(rating);
     const homePageCourses = await HomeService.searchCourses(query);
     res.render(path.join(__dirname, '../../views/home/search-course.ejs'), { courses: homePageCourses, query });
   }
