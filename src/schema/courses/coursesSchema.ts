@@ -6,7 +6,8 @@ const coursesSchema = new mongoose.Schema({
   title: { type: String },
   description: { type: String },
   src: { type: String },
-  rating: { type: String },
+  avgRating: { type: Number },
+  ratingQtd: { type: Number },
   numberOfStudents: { type: String }
 });
 
