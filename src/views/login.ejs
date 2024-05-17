@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link rel="stylesheet" href="/login.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Londrina+Outline&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="shadow-container">
+      <h2 style="color: white"><strong>Explore o conhecimento sem limites</strong></h2>
+      <div class="containerPalavra">
+        <p style="color: white">a sua</p>
+        <p style="font-family: 'Londrina Outline', cursive; font-size: 26px; color: white">jornada de aprendizado</p>
+      </div>
+      <p style="color: white">começa hoje mesmo!</p>
+    </div>
+    </div>
+    <div class="container">
+      <div id="login-box" class="box">
+        <h2>Login</h2>
+        <form action="/login" method="POST">
+          <div class="textbox">
+            <input type="text" name="username" placeholder="Username" required />
+          </div>
+          <div class="textbox">
+            <input type="password" name="password" placeholder="Password" required />
+          </div>
+          <button type="submit" class="btn">Login</button>
+        </form>
+        <p>Não tem uma conta? <a href="#register" id="show-register">Cadastre-se</a></p>
+      </div>
+
+      <div id="register-box" class="box">
+        <h2>Cadastro</h2>
+        <form action="/register" method="POST">
+          <div class="textbox">
+            <input type="text" name="newUsername" placeholder="Username" required />
+          </div>
+          <div class="textbox">
+            <input type="password" name="newPassword" id="newPassword" placeholder="Password" required />
+          </div>
+          <div class="textbox">
+            <input
+              type="password"
+              name="confirmPassword"
+              id="confirmPassword"
+              placeholder="Confirm Password"
+              required
+            />
+          </div>
+          <button type="submit" class="btn">Cadastrar</button>
+        </form>
+        <p>Já tem uma conta? <a href="#login" id="show-login">Voltar ao Login</a></p>
+      </div>
+    </div>
+    <script src="/script.js"></script>
+  </body>
+</html>
