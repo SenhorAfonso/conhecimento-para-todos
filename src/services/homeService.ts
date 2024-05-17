@@ -1,4 +1,5 @@
 import HomeRepository from '../repository/homeRepository';
+import homeQueryObject from '../interfaces/home/queryObjetc';
 
 class HomeService {
 
@@ -7,7 +8,7 @@ class HomeService {
     return result;
   }
 
-  static async searchCourses(query: string) {
+  static async searchCourses(query: homeQueryObject) {
     const result = await HomeRepository.searchCourses(query);
     return result;
   }

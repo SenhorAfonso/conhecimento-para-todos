@@ -3,13 +3,17 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/home/css/home.css">
+    <link rel="stylesheet" href="/base.css">
+    <link rel="stylesheet" href="/search-course/css/course-container.css">
+    <link rel="stylesheet" href="/search-course/css/nav-bar.css">
+    <link rel="stylesheet" href="/search-course/css/side-bar.css">
     <title>Document</title>
   </head>
   <body>
 
     <nav class="home-navbar">
-      <img class="home-navbar-img" src="/home/img/homepage-logo.png" alt>
+      <a href="/"> <img class="home-navbar-img"
+          src="/home/img/homepage-logo.png" alt> </a>
       <form class="home-navbar-form" action="/courses/search">
         <input name="search-course" type="text">
         <button type="submit"></button>
@@ -22,33 +26,140 @@
 
     <main>
 
-      <h1 class="home-title">Princípais cursos sobre <%= query %>.</h1>
-
-      <% if (courses) { %>
-      <div class="course-container">
-        <div class="courses-row">
-          <% courses.forEach(course => { %>
-          <div class="course-item">
-            <a href="<%= course.src %>">
-              <img id="<%= course.title %>" class="course-image"
-                src="/home/img/image.png" alt>
-            </a>
-            <label for="<%= course.title %>"></label>
-            <p class="course-title"><%= course.title %></p>
-            <p class="course-instructor"><a
-                href="/courses/instrutor/<%= course.creator %>"><%=
-                course.creator %></a></p>
-            <p class="course-rating">
-              <span>XXXXX</span> <span>42</span>
-            </p>
-          </div>
-
-          <% }) %>
-        </div>
-      </div>
+      <% if (query.topic) { %>
+        <h1 class="home-title">Princípais cursos sobre <%= query.topic %>.</h1>
+      <% } else { %>
+        <h1 class="home-title">Princípais cursos de <%= query.instructorName
+          %>.</h1>
       <% } %>
 
+      <% if (courses) { %>
+        <div class="courses-column">
+          <% courses.forEach(course => { %>
+            <div class="course-item">
+              <a href="<%= course.src %>">
+                <img id="<%= course.title %>" class="course-image"
+                  src="/home/img/image.png" alt>
+              </a>
+
+              <div>
+                <p class="course-title"><%= course.title %></p>
+                <p class="course-description"><%= course.description %></p>
+                <p class="course-instructor"><a
+                    href="/courses/search?instructorName=<%= course.creator %>"><%=
+                    course.creator %></a></p>
+                <p class="course-rating">
+                  <span>
+                    <% let count = 0 %>
+
+                    <% for (let i = 1; i < course.avgRating -0.5; i++ ) { %>
+                    <img src="/search-course/img/star.png" class="rating">
+                    <% count += 1 } %>
+                    <% if (course.avgRating % 1 !== 0) { %>
+                    <img src="/search-course/img/half-star.png" class="rating">
+                    <% count +=1 } %>
+                    <% for (let index = count; index < 5; index++) { %>
+                    <img src="/search-course/img/star-placeholder.png"
+                      class="rating">
+
+                    <% } %>
+                  </span> <span><%= course.ratingQtd %></span>
+                </p>
+              </div>
+
+              <div class="horizontal-line"></div>
+            </div>
+          <% }) %>
+        </div>
+      <% } else { %>
+        <h1>moio</h1>
+      <% } %>
+
+
+      <form action>
+        <div class="side-bar">
+          <div class="classifications">
+            <h2>Classificações</h2>
+            <div>
+              <input id="search-gte4.5stars" type="radio"
+                onclick="checkClassification()">
+
+              <label for="search-gte4.5stars">
+                <img src="/search-course/img/star.png" class="rating">
+                <img src="/search-course/img/star.png" class="rating">
+                <img src="/search-course/img/star.png" class="rating">
+                <img src="/search-course/img/star.png" class="rating">
+                <img src="/search-course/img/half-star.png" class="rating">
+
+                4.5 ou mais
+              </label>
+            </div>
+
+            <div>
+              <input id="search-gte4stars" type="radio"
+                onclick="checkClassification()">
+
+              <label for="search-gte4stars">
+                <img src="/search-course/img/star.png" class="rating">
+                <img src="/search-course/img/star.png" class="rating">
+                <img src="/search-course/img/star.png" class="rating">
+                <img src="/search-course/img/star.png" class="rating">
+                <img src="/search-course/img/star-placeholder.png"
+                  class="rating">
+
+                4.0 ou mais
+              </label>
+            </div>
+
+            <div>
+              <input id="search-gte3.5stars" type="radio"
+                onclick="checkClassification()">
+
+              <label for="search-gte3.5stars">
+                <img src="/search-course/img/star.png" class="rating">
+                <img src="/search-course/img/star.png" class="rating">
+                <img src="/search-course/img/star.png" class="rating">
+                <img src="/search-course/img/half-star.png" class="rating">
+                <img src="/search-course/img/star-placeholder.png"
+                  class="rating">
+
+                3.5 ou mais
+              </label>
+            </div>
+
+            <div>
+              <input id="search-gte3stars" type="radio"
+                onclick="checkClassification()">
+
+              <label for="search-gte3stars">
+                <img src="/search-course/img/star.png" class="rating">
+                <img src="/search-course/img/star.png" class="rating">
+                <img src="/search-course/img/star.png" class="rating">
+                <img src="/search-course/img/star-placeholder.png"
+                  class="rating">
+                <img src="/search-course/img/star-placeholder.png"
+                  class="rating">
+
+                3.0 ou mais
+              </label>
+            </div>
+
+          </div>
+
+          <div class="instructors-container">
+            <h2>Instrutores</h2>
+            <% if (courses) { %>
+            <% courses.forEach(course => { %>
+            <a href="/courses/search?instructorName=<%= course.creator %>"> <p
+                class="instructor"><%= course.creator %></p> </a>
+            <% }) %>
+            <% } %>
+          </div>
+        </div>
+      </form>
+
     </main>
+
+    <script src="/search-course/js/filter.js"></script>
   </body>
 </html>
-
