@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/base.css">
+    <link rel="stylesheet" href="/base/base.css">
+    <link rel="stylesheet" href="/base/base-font-lato.css">
+    <link rel="stylesheet" href="/base/nav-bar.css">
     <link rel="stylesheet" href="/search-course/css/course-container.css">
     <link rel="stylesheet" href="/search-course/css/nav-bar.css">
     <link rel="stylesheet" href="/search-course/css/side-bar.css">
@@ -12,7 +14,7 @@
   <body>
 
     <nav class="home-navbar">
-      <a href="/"> <img class="home-navbar-img"
+      <a href="/home"> <img class="home-navbar-img"
           src="/home/img/homepage-logo.png" alt> </a>
       <form class="home-navbar-form" action="/courses/search">
         <input name="search-course" type="text">
@@ -37,17 +39,17 @@
         <div class="courses-column">
           <% courses.forEach(course => { %>
             <div class="course-item">
-              <a href="<%= course.src %>">
+              <a href="/courses/watch?src=<%= course.src %>">
                 <img id="<%= course.title %>" class="course-image"
-                  src="/home/img/image.png" alt>
+                  src="<%= course.thumbnail %>" alt>
               </a>
 
               <div>
-                <p class="course-title"><%= course.title %></p>
-                <p class="course-description"><%= course.description %></p>
+                <p class="course-title lato-regular"><%= course.title %></p>
+                <p class="course-description lato-light"><%= course.description %></p>
                 <p class="course-instructor"><a
-                    href="/courses/search?instructorName=<%= course.creator %>"><%=
-                    course.creator %></a></p>
+                    href="/courses/search?instructorName=<%= course.instructor %>"><%=
+                    course.instructor %></a></p>
                 <p class="course-rating">
                   <span>
                     <% let count = 0 %>
@@ -80,7 +82,7 @@
         <div class="side-bar">
           <div class="classifications">
             <h2>Classificações</h2>
-            <div>
+            <div class="lato-regular">
               <input id="search-gte4.5stars" type="radio"
                 onclick="checkClassification()">
 
@@ -95,7 +97,7 @@
               </label>
             </div>
 
-            <div>
+            <div class="lato-regular">
               <input id="search-gte4stars" type="radio"
                 onclick="checkClassification()">
 
@@ -111,7 +113,7 @@
               </label>
             </div>
 
-            <div>
+            <div class="lato-regular">
               <input id="search-gte3.5stars" type="radio"
                 onclick="checkClassification()">
 
@@ -127,7 +129,7 @@
               </label>
             </div>
 
-            <div>
+            <div class="lato-regular">
               <input id="search-gte3stars" type="radio"
                 onclick="checkClassification()">
 
@@ -151,7 +153,7 @@
             <% if (courses) { %>
             <% courses.forEach(course => { %>
             <a href="/courses/search?instructorName=<%= course.creator %>"> <p
-                class="instructor"><%= course.creator %></p> </a>
+                class="instructor lato-regular"><%= course.creator %></p> </a>
             <% }) %>
             <% } %>
           </div>

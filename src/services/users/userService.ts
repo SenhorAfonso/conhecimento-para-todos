@@ -1,11 +1,37 @@
-import userModel from '../../schema/users/user.schema';
-import { UserType } from '../../types/users/user.type';
+import jwt from 'jsonwebtoken';
+import userRepository from '../../repository/users/userRepository';
+import registerUserPayload from '../../types/users/registerUserPayload';
+import loginUserPayload from '../../types/users/loginUserPayload';
+import serverConfig from '../../config/serverConfig';
 
 class UserService {
 
-  async register(user: UserType){
-    const newUser = await userModel.create(user);
-    return newUser;
+  async register(userPayload: registerUserPayload){
+    if (userPayload.password !== userPayload.confirmPassword) {
+      throw new Error('Email ou senha inválidos');
+    }
+
+    if (!userPayload.password || !userPayload.confirmPassword) {
+      throw new Error('Email ou senha inválidos');
+    }
+
+    const user = await userRepository.createUser(userPayload);
+
+    const token = jwt.sign({ userId: user.id }, serverConfig.JWT_SECRETE_KEY!);
+
+    return { token };
+  }
+
+  async login(userPayload: loginUserPayload) {
+    const user = await userRepository.login(userPayload);
+
+    if (!user) {
+      throw new Error('user not found');
+    }
+
+    const token = jwt.sign({ userId: user.id }, serverConfig.JWT_SECRETE_KEY!);
+
+    return { token };
   }
 
 }

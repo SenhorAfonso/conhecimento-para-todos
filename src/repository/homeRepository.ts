@@ -51,6 +51,10 @@ class HomeRepository {
     return result;
   }
 
+  static async fetchCourseData(videoId: string) {
+    const result = await coursesModel.findOne({ id: videoId });
+    return result;
+  }
 }
 
 export default HomeRepository;

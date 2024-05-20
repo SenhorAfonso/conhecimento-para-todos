@@ -3,15 +3,25 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/base.css">
+    <link rel="stylesheet" href="/base/base.css">
+    <link rel="stylesheet" href="/base/base-font-lato.css">
+    <link rel="stylesheet" href="/base/nav-bar.css">
     <link rel="stylesheet" href="/home/css/course-container.css">
     <link rel="stylesheet" href="/home/css/nav-bar.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet">
+
     <title>Document</title>
   </head>
   <body>
 
     <nav class="home-navbar">
-      <a href="/"><img class="home-navbar-img" src="/home/img/homepage-logo.png"
+      <a href="/home"><img class="home-navbar-img"
+          src="/home/img/homepage-logo.png"
           alt></a>
       <form class="home-navbar-form" action="/courses/search">
         <input name="search-course" type="text">
@@ -31,8 +41,8 @@
       <div class="course-container">
 
         <div class="course-header">
-          <h2>Os melhores cursos de <a
-              href="/courses/search?topic=<%= course.topic %>"><%= course.topic
+          <h2>Os melhores cursos de <a class="lato-bold"
+              href="/courses/search?topic=<%= course.topic %>"><%= course.topic.toUpperCase()
               %></a></h2>
           <div class="horizontal-line"></div>
         </div>
@@ -45,8 +55,8 @@
                 src="/home/img/image.png" alt>
             </a>
             <label for="<%= topCourse.title %>"></label>
-            <p class="course-title"><%= topCourse.title %></p>
-            <p class="course-description"><%= topCourse.description %></p>
+            <p class="course-title lato-regular"><%= topCourse.title %></p>
+            <p class="course-description lato-regular"><%= topCourse.description %></p>
             <p class="course-instructor"><a
                 href="/courses/search?instructorName=<%= topCourse.creator %>"><%=
                 topCourse.creator %></a></p>

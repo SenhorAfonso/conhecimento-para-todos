@@ -23,14 +23,6 @@
   width: auto;
 }
 
-.horizontal-line {
-  flex-grow: 1;
-  margin-right: 5%;
-  height: 2px;
-
-  background-color: #05445E;;
-}
-
 .courses-row {
   display: flex;
   flex-wrap: wrap;
