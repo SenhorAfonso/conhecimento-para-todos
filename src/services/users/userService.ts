@@ -25,6 +25,10 @@ class UserService {
   async login(userPayload: loginUserPayload) {
     const user = await userRepository.login(userPayload);
 
+    if (!user) {
+      throw new Error('user not found');
+    }
+
     const token = jwt.sign({ userId: user.id }, serverConfig.JWT_SECRETE_KEY!);
 
     return { token };

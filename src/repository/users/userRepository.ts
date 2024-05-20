@@ -15,7 +15,7 @@ class UserRepository {
     return result;
   }
 
-  async login(user: loginUserPayload): Promise<UserDocument> {
+  async login(user: loginUserPayload): Promise<UserDocument | null> {
     const result = await userModel.findOne({ email: user.email });
     return result;
   }
@@ -25,7 +25,7 @@ class UserRepository {
     return result;
   }
 
-  async updateUser(userId: string, newData: Partial<UserModel>): Promise<UserDocument | null> {
+  async updateUser(userId: string, newData: Partial<UserDocument>): Promise<UserDocument | null> {
     const result = await userModel.findByIdAndUpdate(userId, newData, { new: true }).exec();
     return result;
   }
@@ -34,8 +34,6 @@ class UserRepository {
     const result = await userModel.findByIdAndDelete(userId).exec();
     return result;
   }
-
-  // Outras funções de consulta conforme necessário
 }
 
 export default new UserRepository();

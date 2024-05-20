@@ -18,7 +18,11 @@ class HomeService {
 
   static async fetchCourseData(courseId: string) {
     const course = await HomeRepository.fetchCourseData(courseId);
-    const courseSrc = course.src;
+
+    if (!course) {
+      throw new Error('course not found');
+    }
+
     const courseTOC = course.tableOfContents;
 
     const courseInstructorId = course.instructor;
