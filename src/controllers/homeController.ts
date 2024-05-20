@@ -40,11 +40,15 @@ class HomeController {
     res.render(path.join(__dirname, '../../views/home/search-course.ejs'), { courses: homePageCourses, query });
   }
 
-  static watching(
+  static async watching(
     req: Request,
     res: Response
   ) {
-    res.render(path.join(__dirname, '../../views/course/watching.ejs'));
+    const { src } = req.query as { src: string };
+    const videoId = src.replace('https://youtu.be/', '');
+
+    const courseDetails = await HomeService.fetchCourseData(videoId);
+    res.render(path.join(__dirname, '../../views/course/watching.ejs'), { courseDetails });
   }
 
 }
