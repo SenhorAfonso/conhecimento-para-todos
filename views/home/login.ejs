@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-br">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link rel="stylesheet" href="/home/css/login.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Englebert&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Englebert&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Londrina+Outline&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  
+    <script src="/register/js/changeRegisterField.js"></script>
+  </head>
+
+  <body>
+
+    <main class="register-page-container">
+
+      <div class="cta-container">
+        <h1 class="lato-black white">Explore o conhecimento sem limites</h1>
+        <h2 class="lato-light white">a sua <span class="londrina-outline-regular">jornada de aprendizado</span></h2>
+        <h2 class="lato-light white">começa hoje mesmo</h2>
+        <img class="register-arrow" src="/register/img/register-arrow.png" alt="">
+      </div>
+
+      <div id="make-register" class="register-container">
+        <img class="register-page-logo" src="/register/img/educate-logo.png" alt="">
+        <form action="/user/register" class="register-form" method="post">
+          <input class="register-input" name="fullname" placeholder="NOME COMPLETO"></input>
+          <input class="register-input" name="name" placeholder="NOME DE USUÁRIO"></input>
+          <input class="register-input" name="email" placeholder="E-MAIL" type="email"></input>
+          <input class="register-input" name="password" placeholder="*******" type="password"></input>
+          <input class="register-input" name="confirmPassword" placeholder="*******" type="password"></input>
+          <button class="register-button">CADASTRAR</button>
+        </form>
+        <p class="lato-regular make-login">JÁ POSSUI CADASTRO? <span onclick="changeRegisterField()">ENTRAR</span></p>
+      </div>
+
+      <div id="make-login" class="login-container">
+        <img class="register-page-logo" src="/register/img/educate-logo.png" alt="">
+        <form action="/user/login" class="register-form" method="post">
+          <input class="register-input" name="email" placeholder="E-MAIL" type="email"></input>
+          <input class="register-input" name="password" placeholder="*******" type="password"></input>
+          <button type="submit" class="register-button">ENTRAR</button>
+        </form>
+        <p class="lato-regular make-login">NÃO POSSUI CADASTRO? <span onclick="changeRegisterField()">CADASTRE-SE</span></p>
+      </div>
+
+    </main>
+
+  </body>
+
+</html>

@@ -3,54 +3,87 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/home/css/home.css">
+    <link rel="stylesheet" href="/base/base.css">
+    <link rel="stylesheet" href="/base/base-font-lato.css">
+    <link rel="stylesheet" href="/base/nav-bar.css">
+    <link rel="stylesheet" href="/home/css/course-container.css">
+    <link rel="stylesheet" href="/home/css/nav-bar.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet">
+
     <title>Document</title>
   </head>
   <body>
 
     <nav class="home-navbar">
-      <a href="/"><img class="home-navbar-img" src="/home/img/homepage-logo.png" alt></a>
+      <a href="/home"><img class="home-navbar-img"
+          src="/home/img/homepage-logo.png"
+          alt></a>
       <form class="home-navbar-form" action="/courses/search">
         <input name="search-course" type="text">
         <button type="submit"></button>
       </form>
       <a href="/profile/">
-        <img class="home-navbar-profile-pic" src="/home/img/profile-pic.png" alt>
+        <img class="home-navbar-profile-pic" src="/home/img/profile-pic.png"
+          alt>
       </a>
     </nav>
-
     <main>
 
       <h1 class="home-title">Princípais cursos por categoria.</h1>
 
       <% if (courses) { %>
-        <% courses.forEach(course => { %>
-          <div class="course-container">
+      <% courses.forEach(course => { %>
+      <div class="course-container">
 
-            <div class="course-header">
-              <h2>Os melhores cursos de <a href="/courses/search?topic=<%= course.topic %>"><%= course.topic %></a></h2>
-              <div class="horizontal-line"></div>
-            </div>
-          
-            <div class="courses-row">
-              <% course.topCourses.forEach(topCourse => { %>
-                <div class="course-item">
-                  <a href="<%= topCourse.src %>">
-                    <img id="<%= topCourse.title %>" class="course-image" src="/home/img/image.png" alt="">
-                  </a>
-                  <label for="<%= topCourse.title %>"></label>
-                  <p class="course-title"><%= topCourse.title %></p>
-                  <p class="course-instructor"><a href="/courses/instrutor/<%= topCourse.creator %>"><%= topCourse.creator %></a></p>
-                  <p class="course-rating">
-                    <span>XXXXX</span> <span>42</span>
-                  </p>
-                </div>
-              <% }) %>
-            </div>
+        <div class="course-header">
+          <h2>Os melhores cursos de <a class="lato-bold"
+              href="/courses/search?topic=<%= course.topic %>"><%= course.topic.toUpperCase()
+              %></a></h2>
+          <div class="horizontal-line"></div>
+        </div>
 
+        <div class="courses-row">
+          <% course.topCourses.forEach(topCourse => { %>
+          <div class="course-item">
+            <a href="/courses/watch?src=<%= topCourse.src %>">
+              <img id="<%= topCourse.title %>" class="course-image"
+                src="/home/img/image.png" alt>
+            </a>
+            <label for="<%= topCourse.title %>"></label>
+            <p class="course-title lato-regular"><%= topCourse.title %></p>
+            <p class="course-description lato-regular"><%= topCourse.description %></p>
+            <p class="course-instructor"><a
+                href="/courses/search?instructorName=<%= topCourse.creator %>"><%=
+                topCourse.creator %></a></p>
+            <p class="course-rating">
+              <span>
+                <% let count = 0 %>
+
+                <% for (let i = 1; i < topCourse.avgRating -0.5; i++ ) { %>
+                <img src="/search-course/img/star.png" class="rating">
+                <% count += 1 } %>
+                <% if (topCourse.avgRating % 1 !== 0) { %>
+                <img src="/search-course/img/half-star.png" class="rating">
+                <% count +=1 } %>
+                <% for (let index = count; index < 5; index++) { %>
+                <img src="/search-course/img/star-placeholder.png"
+                  class="rating">
+
+                <% } %>
+              </span> <span><%= topCourse.ratingQtd %></span>
+            </p>
           </div>
+          <% }) %>
+        </div>
+
+      </div>
       <% }) %>
-    <% } %>
+      <% } %>
 
     </main>
   </body>

@@ -1,40 +1,60 @@
 import mongoose from 'mongoose';
-import coursesModel from '../models/coursesModel';
+import coursesModel from '../schema/courses/coursesSchema';
+import homeQueryObject from '../interfaces/home/queryObjetc';
 
 class HomeRepository {
 
   static async fetchCourses() {
     const result = await coursesModel.aggregate([
       { $sort: { title: 1 } },
-      { $group: {
-        _id: '$topic', topCourses: {
-          $push: '$$ROOT'
-        } }
+      {
+        $group: {
+          _id: '$topic', topCourses: {
+            $push: '$$ROOT'
+          }
+        }
       },
-      { $project: {
-        _id: 0,
-        topic: '$_id',
-        topCourses: {
-          $slice: ['$topCourses', 5]
-        } }
+      {
+        $project: {
+          _id: 0,
+          topic: '$_id',
+          topCourses: {
+            $slice: ['$topCourses', 5]
+          }
+        }
       }
     ]);
 
     return result;
   }
 
-  static async searchCourses(query: string) {
-    let result: mongoose.Document[] | null;
-
-    result = await coursesModel.find({ title: { $regex: `.*${query}.*`, $options: 'i' } });
-
-    if (result.length === 0) {
-      result = await coursesModel.find({ topic: { $regex: `.*${query}.*`, $options: 'i' } });
+  static async searchCourses(query: homeQueryObject) {
+    if (!query.rating) {
+      query.rating = 0;
     }
+
+    let result: mongoose.Document[] | null = [];
+
+    result = await coursesModel.find({
+      $and: [
+        { avgRating: { $gte: query.rating } },
+        {
+          $or: [
+            { creator: { $regex: `.*${query.instructorName}.*`, $options: 'i' } },
+            { title: { $regex: `.*${query.topic}.*`, $options: 'i' } },
+            { topic: { $regex: `.*${query.topic}.*`, $options: 'i' } }
+          ]
+        }
+      ]
+    });
 
     return result;
   }
 
+  static async fetchCourseData(videoId: string) {
+    const result = await coursesModel.findOne({ id: videoId });
+    return result;
+  }
 }
 
 export default HomeRepository;

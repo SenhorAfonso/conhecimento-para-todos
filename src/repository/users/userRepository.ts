@@ -1,28 +1,39 @@
-import { UserType } from '../../types/users/user.type';
-import User, { UserDocument } from '../../schema/users/user.schema';
+import registerUserPayload from '../../types/users/registerUserPayload';
+import userModel, { UserDocument } from '../../schema/users/user.schema';
+import loginUserPayload from '../../types/users/loginUserPayload';
 
 class UserRepository {
-  async createUser(user: UserType): Promise<UserDocument> {
-    const result = await User.create(user);
+  async createUser(user: registerUserPayload): Promise<UserDocument> {
+
+    const previusRegister = await userModel.findOne({ email: user.email });
+
+    if (previusRegister) {
+      throw new Error('Email já cadastrado');
+    }
+
+    const result = await userModel.create(user);
+    return result;
+  }
+
+  async login(user: loginUserPayload): Promise<UserDocument | null> {
+    const result = await userModel.findOne({ email: user.email });
     return result;
   }
 
   async getUserById(userId: string): Promise<UserDocument | null> {
-    const result = await User.findById(userId).exec();
+    const result = await userModel.findById({ _id: userId }).exec();
     return result;
   }
 
-  async updateUser(userId: string, newData: Partial<UserModel>): Promise<UserDocument | null> {
-    const result = await User.findByIdAndUpdate(userId, newData, { new: true }).exec();
+  async updateUser(userId: string, newData: Partial<UserDocument>): Promise<UserDocument | null> {
+    const result = await userModel.findByIdAndUpdate(userId, newData, { new: true }).exec();
     return result;
   }
 
   async deleteUser(userId: string): Promise<UserDocument | null> {
-    const result = await User.findByIdAndDelete(userId).exec();
+    const result = await userModel.findByIdAndDelete(userId).exec();
     return result;
   }
-
-  // Outras funções de consulta conforme necessário
 }
 
 export default new UserRepository();

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/base/base.css">
+    <link rel="stylesheet" href="/base/base-font-lato.css">
+    <link rel="stylesheet" href="/base/nav-bar.css">
+    <link rel="stylesheet" href="/home/css/course-container.css">
+    <link rel="stylesheet" href="/home/css/nav-bar.css">
+    <link rel="stylesheet" href="/watching/css/watching.css">
+    <title>Document</title>
+  </head>
+  <body>
+
+    <nav class="home-navbar">
+      <a href="/home"><img class="home-navbar-img" src="/home/img/homepage-logo.png"
+          alt></a>
+      <form class="home-navbar-form" action="/courses/search">
+        <input name="search-course" type="text">
+        <button type="submit"></button>
+      </form>
+      <a href="/profile/">
+        <img class="home-navbar-profile-pic" src="/home/img/profile-pic.png"
+          alt>
+      </a>
+    </nav>
+
+    <main>
+      <div class="course-container">
+        <div class="course-preview">
+          <iframe
+            width="1218"
+            height="685px"
+            src="https://www.youtube.com/embed/<%= courseDetails.courseSrc %>"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+
+
+        <div class="course-toc">
+
+          <div class="course-toc-header">
+            <h2 class="course-toc-header-title">Índice</h2>
+          </div>
+          
+          <ul>
+            <% courseDetails.courseTOC.forEach(toc => { %>
+              <li class="course-lesson">
+
+                <div class="course-lesson-checbox">
+                  <input type="checkbox">
+                </div>
+
+                <div class="course-lesson-desc">
+                  <h2><%= toc.title %></h2>
+                  <p><%= toc.duration %></p>
+                </div>
+              </li>
+            <% }) %>
+
+          </ul>
+
+        </div>
+      </div>
+
+      <div class="about-instructor">
+
+        <h2 class="heading-2">Conheça <%= courseDetails.courseInstructorDetails.fullName %></h2>
+        <div class="instructor-container">
+
+          <div class="instructor-info">
+            <img class="instructor-image" src="<%= courseDetails.courseInstructorDetails.profilePic %>" alt>
+            <p class="instructor-description lato-bold"><%= courseDetails.courseInstructorDetails.profileShortBio %></p>
+          </div>
+
+          <div class="vertical-bar"></div>
+
+          <div class="instructor-bio">
+            <p class="instructor-bio-title lato-bold">BIOGRAPHY</p>
+            <p class="instructor-bio-paragraph lato-thin"><%= courseDetails.courseInstructorDetails.profileLongBio %></p>
+
+            <p class="instructor-bio-title lato-bold">EXPERIENCE AS INSTRUCTOR</p>
+            <p class="instructor-bio-paragraph lato-thin"><%= courseDetails.courseInstructorDetails.instructorExperience %></p>
+
+            <p class="instructor-bio-title lato-bold">INSTRUCTOR RATING </p>
+            <div class="instructor-rating lato-thin">
+
+              <div class="instructor-rating-item">
+                <img class="instructor-rating-item-image" src="/watching/img/star.png" alt>
+                <p><%= courseDetails.courseInstructorDetails.instructorRating %> Classificação do instrutor</p>
+              </div>
+
+              <div class="instructor-rating-item">
+                <img class="instructor-rating-item-image" src="/watching/img/medal.png" alt>
+                <p><%= courseDetails.courseInstructorDetails.instructorQtdOfRating %> Quantidade de avaliações</p>
+              </div>
+
+              <div class="instructor-rating-item">
+                <img class="instructor-rating-item-image" src="/watching/img/students.png" alt>
+                <p><%= courseDetails.courseInstructorDetails.instructorQtdOfStudents %> Quantidade de alunos</p>
+              </div>
+
+              <div class="instructor-rating-item">
+                <img class="instructor-rating-item-image" src="/watching/img/courses.png" alt>
+                <p><%= courseDetails.courseInstructorDetails.instructorQtdOfCourses %> Quantidade de cursos</p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="questions-answers-container">
+
+        <h2 class="heading-2">Perguntas dos alunos </h2>
+
+        <% courseDetails.courseQuestionsData.forEach(questionObject => { %>
+          <div class="question">
+
+            <div class="question-owner-image">
+              <img class="user-question-image" src="<%= questionObject.userImg %>" alt>
+            </div>
+
+            <div class="question-data">
+              <p class="question-owner-name lato-light">@<%= questionObject.username %></p>
+              <h2 class="question-title lato-bold"><%= questionObject.questionTitle %></h2>
+              <p class="question-body lato-light"><%= questionObject.questionBody %></p>
+              <div class="question-votes">
+                <span id="upvote"><img class="vote-image" src="/watching/img/upvote.png" alt></span>
+                <span id="downvote"><img class="vote-image" src="/watching/img/downvote.png" alt></span>
+              </div>
+            </div>
+
+          </div>
+        <% }) %>
+
+
+
+        <div class="horizontal-bar"></div>
+
+
+      </div>
+
+    </main>
+
+    <div class="footer"></div>
+  </body>
+</html>

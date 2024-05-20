@@ -1,18 +1,30 @@
 import { Request, Response } from 'express';
-import  UserService  from '../../services/users/user.service';
+import userService from '../../services/users/userService';
 
-class UserController{
+class UserController {
 
-  async register(req: Request, res: Response){
-    const registerUser = await UserService.register(req.body);
+  async register(
+    req: Request,
+    res: Response
+  ) {
+    const { fullname, username, email, password, confirmPassword } = req.body;
+    const expirationDate = new Date(Date.now() + 1000000);
 
-    if(!registerUser){
-      res.status(400);
-      throw new Error('Error User Data');
-    }
+    const { token } = await userService.register({ fullname, username, email, password, confirmPassword });
 
-    res.status(201);
-    return res.json(registerUser);
+    res.cookie('jwt-token', `Bearer ${token}`, { expires: expirationDate, httpOnly: true });
+    res.redirect('/home');
+  }
+
+  async login(
+    req: Request,
+    res: Response
+  ) {
+    const { email, password } = req.body;
+    const { token } = await userService.login({ email, password });
+
+    res.cookie('jwt-token', `Bearer ${token}`);
+    res.redirect('/home');
   }
 
 }

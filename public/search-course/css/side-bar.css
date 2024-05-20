@@ -1,0 +1,46 @@
+.side-bar {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+
+  top: 35%;
+  left: 5%;
+
+  height: 60%;
+  width: 15%;
+
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.classifications {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+.classifications > div {
+  margin-left: 10px;
+}
+
+.rating {
+  height: 13px;
+  width: 13px;
+}
+
+.instructors-container {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0px;
+}
+
+.instructor {
+  margin-bottom: 8px;
+  font-size: 16px;
+  margin-left: 10px;
+
+  cursor: pointer;
+}
+
