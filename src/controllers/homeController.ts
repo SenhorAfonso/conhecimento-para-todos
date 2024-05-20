@@ -13,6 +13,13 @@ class HomeController {
     res.render(path.join(__dirname, '../../views/home/homepage.ejs'), { courses: homePageCourses });
   }
 
+  static login(
+    req: Request,
+    res: Response
+  ) {
+    res.render(path.join(__dirname, '../../views/home/login.ejs'));
+  }
+
   static async search(
     req: Request,
     res: Response
@@ -31,6 +38,13 @@ class HomeController {
     query.rating = Number(rating);
     const homePageCourses = await HomeService.searchCourses(query);
     res.render(path.join(__dirname, '../../views/home/search-course.ejs'), { courses: homePageCourses, query });
+  }
+
+  static watching(
+    req: Request,
+    res: Response
+  ) {
+    res.render(path.join(__dirname, '../../views/course/watching.ejs'));
   }
 
 }
