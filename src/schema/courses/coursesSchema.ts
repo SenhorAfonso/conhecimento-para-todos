@@ -7,10 +7,11 @@ const coursesSchema = new mongoose.Schema({
   description: { type: String },
   src: { type: String },
   id: { type: String },
-  tableOfContents: [{ title: { type: String }, desc: { type: String }, checked: { type: Boolean } }],
+  thumbnail: { type: String },
+  tableOfContents: [{ title: { type: String }, duration: { type: Number }, checked: { type: Boolean } }],
   avgRating: { type: Number },
   ratingQtd: { type: Number },
-  numberOfStudents: { type: String },
+  numberOfStudents: { type: Number },
   questions: { type: mongoose.Types.ObjectId, ref: 'questionsSchema' }
 });
 
