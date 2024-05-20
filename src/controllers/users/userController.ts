@@ -22,6 +22,7 @@ class UserController {
   ) {
     const { email, password } = req.body;
     const { token } = await userService.login({ email, password });
+
     res.cookie('jwt-token', `Bearer ${token}`);
     res.redirect('/home');
   }

@@ -21,7 +21,7 @@ class UserRepository {
   }
 
   async getUserById(userId: string): Promise<UserDocument | null> {
-    const result = await userModel.findById(userId).exec();
+    const result = await userModel.findById({ _id: userId }).exec();
     return result;
   }
 

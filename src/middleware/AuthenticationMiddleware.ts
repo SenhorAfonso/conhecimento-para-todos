@@ -11,20 +11,20 @@ class AuthenticationMiddleware{
     res: Response,
     next: NextFunction
   ) {
-    const authHeader = req.cookies['jwt-token'];
+    const authHeader = req.cookies['jwt-token'] || req.headers.authorization;
 
     if (AuthenticationMiddleware.authHeaderIsNotValid(authHeader)) {
-      res.redirect('/login')
+      res.redirect('/login');
     }
 
     const token = authHeader!.split(' ')[1];
 
     try {
-      const { userID } = jwt.verify(token, serverConfig.JWT_SECRETE_KEY!) as IJwtPayload;
-      req.user = { userID };
+      const { userId } = jwt.verify(token, serverConfig.JWT_SECRETE_KEY!) as IJwtPayload;
+      req.user = { userId };
       next();
     } catch (error) {
-      console.error('Unauthenticated!');
+      res.redirect('/login');
     }
 
   }
