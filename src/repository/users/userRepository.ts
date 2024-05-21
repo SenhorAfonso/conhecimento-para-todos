@@ -12,7 +12,7 @@ class UserRepository {
     return result;
   }
 
-  async updateUser(userId: string, newData: Partial<UserModel>): Promise<UserDocument | null> {
+  async updateUser(userId: string, newData: Partial<UserType>): Promise<UserDocument | null> {
     const result = await User.findByIdAndUpdate(userId, newData, { new: true }).exec();
     return result;
   }
@@ -21,6 +21,13 @@ class UserRepository {
     const result = await User.findByIdAndDelete(userId).exec();
     return result;
   }
+
+
+  async findOneAndUpdateUser(userEmail: string, newData: Partial<UserType>): Promise<UserDocument | null>{
+    const result = await User.findOneAndUpdate({userEmail}, newData, {new: true} ).exec();
+    return result;
+  }
+
 
   // Outras funções de consulta conforme necessário
 }
