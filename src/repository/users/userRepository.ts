@@ -4,7 +4,6 @@ import loginUserPayload from '../../types/users/loginUserPayload';
 
 class UserRepository {
   async createUser(user: registerUserPayload): Promise<UserDocument> {
-
     const previusRegister = await userModel.findOne({ email: user.email });
 
     if (previusRegister) {

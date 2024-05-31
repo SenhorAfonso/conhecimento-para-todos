@@ -8,7 +8,8 @@ class UserController {
     res: Response
   ) {
     const { fullname, username, email, password, confirmPassword } = req.body;
-    const expirationDate = new Date(Date.now() + 1000000);
+    const expirationTime = 8.64e+7;
+    const expirationDate = new Date(Date.now() + expirationTime);
 
     const { token } = await userService.register({ fullname, username, email, password, confirmPassword });
 
