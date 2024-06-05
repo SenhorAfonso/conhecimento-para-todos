@@ -3,7 +3,7 @@ import userRepository from '../../repository/users/userRepository';
 import registerUserPayload from '../../types/users/registerUserPayload';
 import loginUserPayload from '../../types/users/loginUserPayload';
 import serverConfig from '../../config/serverConfig';
-import { UserDocument } from '../../schema/users/user.schema';
+import UserDocument from '../../schema/users/user.schema';
 
 class UserService {
 
