@@ -2,11 +2,12 @@ import { Request, Response } from 'express';
 import path from 'node:path';
 import HomeService from '../services/homeService';
 import homeQueryObject from '../interfaces/home/queryObjetc';
+import AuthenticatedRequest from '../types/AuthMiddleware/AuthenticatedRequest';
 
 class HomeController {
 
   static async home(
-    req: Request,
+    req: AuthenticatedRequest,
     res: Response
   ) {
     const homePageCourses = await HomeService.fetchCourses();
@@ -21,7 +22,7 @@ class HomeController {
   }
 
   static async search(
-    req: Request,
+    req: AuthenticatedRequest,
     res: Response
   ) {
     const { topic, rating, instructorName } = req.query as homeQueryObject;
@@ -41,7 +42,7 @@ class HomeController {
   }
 
   static async watching(
-    req: Request,
+    req: AuthenticatedRequest,
     res: Response
   ) {
     const { src } = req.query as { src: string };
