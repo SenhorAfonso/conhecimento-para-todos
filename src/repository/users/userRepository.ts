@@ -5,7 +5,6 @@ import loginUserPayload from '../../types/users/loginUserPayload';
 
 class UserRepository {
   async createUser(user: any): Promise<User> {
-    console.log(user)
     return await User.create(user);
   }
 

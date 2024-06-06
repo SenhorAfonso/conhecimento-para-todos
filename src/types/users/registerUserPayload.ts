@@ -4,6 +4,7 @@ interface registerUserPayload {
   email: string;
   password: string;
   confirmPassword: string;
+  cpf: string;
 };
 
 export default registerUserPayload;
