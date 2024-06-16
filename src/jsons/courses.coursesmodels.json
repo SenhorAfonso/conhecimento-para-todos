@@ -1,0 +1,123 @@
+[{
+  "_id": {
+    "$oid": "6645fce4706e672fb0006532"
+  },
+  "instructor": "Gustavo Guanabara",
+  "topic": "Fotografia",
+  "title": "Introdução à Fotografia Digital",
+  "description": "Domine os fundamentos da fotografia digital e aprenda a tirar fotos impressionantes.",
+  "src": "https://youtu.be/TUWD7aRUvM0",
+  "id": "TUWD7aRUvM0",
+  "tableOfContents": [
+    {
+      "title": "Introdução à Fotografia",
+      "duration": 5,
+      "checked": false
+    },
+    {
+      "title": "Configurações da Câmera",
+      "duration": 10,
+      "checked": false
+    },
+    {
+      "title": "Composição de Imagem",
+      "duration": 15,
+      "checked": false
+    },
+    {
+      "title": "Edição Básica de Fotos",
+      "duration": 12,
+      "checked": false
+    }
+  ],
+  "avgRating": 4.8,
+  "ratingQtd": "2500",
+  "numberOfStudents": "2500",
+  "questions": {
+    "$oid": "6645fce4706e672fb0006537"
+  },
+  "thumbnail": "https://i.ytimg.com/vi/TUWD7aRUvM0/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLB0W1NRRE3xSgMevEZJlZoBkgBz0g",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6645fce4706e672fb0006535"
+  },
+  "instructor": "Beatriz Almeida",
+  "topic": "Culinária",
+  "title": "Cozinha Italiana para Iniciantes",
+  "description": "Aprenda a preparar pratos clássicos da culinária italiana de forma simples e prática.",
+  "src": "https://youtu.be/L58JDm1nDtE",
+  "id": "L58JDm1nDtE",
+  "tableOfContents": [
+    {
+      "title": "testando TOC",
+      "duration": 2,
+      "checked": false
+    },
+    {
+      "title": "testando TOC",
+      "duration": 2,
+      "checked": false
+    },
+    {
+      "title": "testando TOC",
+      "duration": 2,
+      "checked": false
+    },
+    {
+      "title": "testando TOC",
+      "duration": 2,
+      "checked": false
+    }
+  ],
+  "avgRating": 4.9,
+  "ratingQtd": "1800",
+  "numberOfStudents": "1800",
+  "questions": {
+    "$oid": "6645fce4706e672fb0006533"
+  },
+  "thumbnail": "https://i.ytimg.com/vi/L58JDm1nDtE/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBEnTgi2tnjgwMi004iYMHiKdhDNg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6645fce4706e672fb0006536"
+  },
+  "instructor": "Mariana Costa",
+  "topic": "Desenvolvimento Web",
+  "title": "Desenvolvimento Web com JavaScript",
+  "description": "Aprenda os conceitos básicos e avançados de desenvolvimento web usando JavaScript.",
+  "src": "https://youtu.be/lg6uvLNv8zE",
+  "id": "lg6uvLNv8zE",
+  "tableOfContents": [
+    {
+      "title": "Introdução ao JavaScript",
+      "duration": 8,
+      "checked": false
+    },
+    {
+      "title": "Manipulação do DOM",
+      "duration": 10,
+      "checked": false
+    },
+    {
+      "title": "Eventos e Interatividade",
+      "duration": 12,
+      "checked": false
+    },
+    {
+      "title": "Ajax e APIs",
+      "duration": 14,
+      "checked": false
+    }
+  ],
+  "avgRating": 4.7,
+  "ratingQtd": "3200",
+  "numberOfStudents": "3200",
+  "questions": {
+    "$oid": "6645fce4706e672fb0006539"
+  },
+  "thumbnail": "https://i.ytimg.com/vi/lg6uvLNv8zE/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDEvVASfECAYm4h1UCmXNSPlsSeoA",
+  "__v": 0
+}]

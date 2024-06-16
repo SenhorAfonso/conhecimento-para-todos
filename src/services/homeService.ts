@@ -1,8 +1,11 @@
+import fs from 'fs';
+import path from 'path';
 import HomeRepository from '../repository/homeRepository';
 import homeQueryObject from '../interfaces/home/queryObjetc';
 import instructorSchema from '../schema/instructorSchema';
 import questionsSchema from '../schema/questionsSchema';
 import userRepository from '../repository/users/userRepository';
+import coursesSchema from '../schema/courses/coursesSchema';
 
 class HomeService {
 
@@ -26,8 +29,7 @@ class HomeService {
     const courseTOC = course.tableOfContents;
 
     const courseInstructorId = course.instructor;
-    const courseInstructorDetails = await instructorSchema.findById(courseInstructorId);
-
+    const courseInstructorDetails = await instructorSchema.findOne({ fullName: courseInstructorId });
     const courseQuestions = await questionsSchema.find({ courseId });
     const courseQuestionsData = await this.clearCourseQuestion(courseQuestions);
 
@@ -64,7 +66,7 @@ class HomeService {
     return { userImg, username };
   }
 
-  static async getAnswers(listOfAnswers: {userId: string, userAnswer: string}[]) {
+  static async getAnswers(listOfAnswers: { userId: string, userAnswer: string }[]) {
     const allAnswers: any[] = [];
 
     await Promise.all(listOfAnswers.map(async answerObject => {
