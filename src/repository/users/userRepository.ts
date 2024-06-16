@@ -2,6 +2,8 @@
 import User from '../../schema/users/user.schema';
 import registerUserPayload from '../../types/users/registerUserPayload';
 import loginUserPayload from '../../types/users/loginUserPayload';
+import sequelize from '../../infra/database/sequelize';
+
 
 class UserRepository {
   async createUser(user: any): Promise<User> {
@@ -23,6 +25,10 @@ class UserRepository {
 
   async deleteUser(userId: string): Promise<number> {
     return await User.destroy({ where: { id: userId } });
+  }
+
+  async deleteAll() {
+    await sequelize.query('TRUNCATE TABLE users RESTART IDENTITY CASCADE;');
   }
 }
 

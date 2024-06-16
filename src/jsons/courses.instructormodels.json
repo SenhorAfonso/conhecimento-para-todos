@@ -1,0 +1,42 @@
+[{
+  "_id": {
+    "$oid": "6645fce4706e672fb0006534"
+  },
+  "fullName": "Beatriz Almeida",
+  "profilePic": "https://s2-g1.glbimg.com/ZC57apfsWb6pNiu2lcMaBcJCKg4=/0x0:800x800/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2023/g/7/fC7pktQRm9bBawHJQeTA/1659392360494.jpg",
+  "profileShortBio": "Chef de Cozinha e Instrutora com mais de 15 anos de experiência.",
+  "profileLongBio": "Beatriz Almeida é uma chef de cozinha renomada com uma paixão por ensinar culinária. Ela possui um diploma de Culinária e tem trabalhado em vários restaurantes de alta classe. Além disso, Beatriz é uma instrutora dedicada, conhecida por sua habilidade de ensinar técnicas culinárias de maneira clara e acessível.",
+  "instructorExperience": "15 anos de experiência em culinária e ensino de técnicas culinárias.",
+  "instructorRating": 4.9,
+  "instructorQtdOfRating": 1800,
+  "instructorQtdOfStudents": 18000,
+  "instructorQtdOfCourses": 12
+},
+{
+  "_id": {
+    "$oid": "6645fce4706e672fb000653b"
+  },
+  "fullName": "Gustavo Guanabara",
+  "profilePic": "https://pbs.twimg.com/profile_images/961605799830347776/Oy9Amu3w_400x400.jpg",
+  "profileShortBio": "Fotógrafo Profissional e Instrutor com mais de 12 anos de experiência.",
+  "profileLongBio": "Gustavo Guanabara é um fotógrafo profissional apaixonado por capturar momentos únicos. Ele possui uma certificação em Fotografia e tem trabalhado com várias agências de publicidade e moda. Além disso, Carlos é um instrutor dedicado, conhecido por sua habilidade de ensinar técnicas fotográficas de maneira prática e envolvente.",
+  "instructorExperience": "12 anos de experiência em fotografia e ensino de técnicas fotográficas.",
+  "instructorRating": 4.8,
+  "instructorQtdOfRating": 2500,
+  "instructorQtdOfStudents": 25000,
+  "instructorQtdOfCourses": 15
+},
+{
+  "_id": {
+    "$oid": "6645fce4706e672fb0006538"
+  },
+  "fullName": "Mariana Costa",
+  "profilePic": "https://s2-g1.glbimg.com/yo-Ue9gp5cyYT7oyt-ABMT0R7Ho=/0x0:1080x1080/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2023/h/F/AuXPHLSBaxILTJEsGP1w/30079428-1636231809786856-2662660671597969408-n.jpg",
+  "profileShortBio": "Desenvolvedora Web e Instrutora com mais de 10 anos de experiência.",
+  "profileLongBio": "Mariana Costa é uma desenvolvedora web experiente com uma paixão por ensinar programação. Ela possui um Mestrado em Engenharia de Software e tem trabalhado em várias startups de tecnologia. Além disso, Mariana é uma instrutora dedicada, conhecida por sua habilidade de ensinar desenvolvimento web de maneira clara e acessível.",
+  "instructorExperience": "10 anos de experiência em desenvolvimento web e ensino de tecnologia.",
+  "instructorRating": 4.7,
+  "instructorQtdOfRating": 3200,
+  "instructorQtdOfStudents": 32000,
+  "instructorQtdOfCourses": 18
+}]

@@ -48,6 +48,14 @@ class UserController {
     }
     res.redirect('/home');
   }
+
+  async populate(
+    req: Request,
+    res: Response
+  ) {
+    await userService.populate();
+    res.json({ success: true });
+  }
 }
 
 export default new UserController();

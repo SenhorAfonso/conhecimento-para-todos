@@ -6,6 +6,7 @@ const userRouter = Router();
 
 userRouter.post('/register', userController.register);
 userRouter.post('/login', userController.login);
+userRouter.get('/populate', userController.populate);
 userRouter.get('/profile', AuthenticationMiddleware.AuthenticateToken, userController.profile);
 userRouter.get('/profile/update', AuthenticationMiddleware.AuthenticateToken, userController.updateProfile);
 
