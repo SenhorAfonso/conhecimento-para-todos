@@ -1,0 +1,13 @@
+services:
+  db:
+    image: postgres:15
+    container_name: postgres15
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: adminpassword@@@
+      POSTGRES_DB: conhecimento_para_todos
+    ports:
+      - "5432:5432"
+    volumes:
+      - /disco-E/atvs/aep2024/src/app.ts:/app/src/app.ts
+
