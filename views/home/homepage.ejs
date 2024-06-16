@@ -27,7 +27,7 @@
         <input name="search-course" type="text">
         <button type="submit"></button>
       </form>
-      <a href="/profile/">
+      <a href="/user/profile?page=personal-info">
         <img class="home-navbar-profile-pic" src="/home/img/profile-pic.png"
           alt>
       </a>
@@ -52,7 +52,7 @@
           <div class="course-item">
             <a href="/courses/watch?src=<%= topCourse.src %>">
               <img id="<%= topCourse.title %>" class="course-image"
-                src="/home/img/image.png" alt>
+              src="<%= topCourse.thumbnail %>" alt>
             </a>
             <label for="<%= topCourse.title %>"></label>
             <p class="course-title lato-regular"><%= topCourse.title %></p>

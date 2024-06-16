@@ -1,10 +1,11 @@
 import ORM from '../../interfaces/database/ORM';
+import sequelize from './sequelize';
 
 class Database {
-  private URI: string;
-  private ORM: ORM;
-
-  constructor(ORM: ORM, URI: string) {
+  constructor(
+    private ORM: ORM,
+    private URI: string
+  ) {
     this.ORM = ORM;
     this.URI = URI;
   }
@@ -12,9 +13,10 @@ class Database {
   async connect() {
     try {
       await this.ORM.connect(this.URI);
+      await sequelize.authenticate();
       console.log('Database connected!');
     } catch (error) {
-      throw new Error('Can not connect to database!');
+      console.error('Unable to connect to the database:', error);
     }
   }
 }

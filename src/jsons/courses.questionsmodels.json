@@ -1,0 +1,51 @@
+[,
+{
+  "_id": {
+    "$oid": "6645fce4706e672fb0006533"
+  },
+  "courseId": "TUWD7aRUvM0",
+  "questionerInfo": {
+    "userId": "5",
+    "userQuestionTitle": "Qual a melhor configuração de câmera para iniciantes?",
+    "userQuestionBody": "Acabei de comprar minha primeira câmera DSLR e estou um pouco perdido nas configurações. Alguma sugestão para começar?"
+  },
+  "listOfAnswers": [
+    {
+      "userId": "6",
+      "userAnswer": "Comece com o modo automático para se familiarizar com a câmera."
+    },
+    {
+      "userId": "7",
+      "userAnswer": "Experimente o modo AV (prioridade de abertura) para controlar a profundidade de campo."
+    },
+    {
+      "userId": "8",
+      "userAnswer": "Use o modo de prioridade de obturador (TV) para capturar objetos em movimento."
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6645fce4706e672fb0006539"
+  },
+  "courseId": "lg6uvLNv8zE",
+  "questionerInfo": {
+    "userId": "9",
+    "userQuestionTitle": "Como manipular o DOM com JavaScript?",
+    "userQuestionBody": "Estou tentando entender como posso alterar elementos HTML usando JavaScript. Pode me dar um exemplo simples?"
+  },
+  "listOfAnswers": [
+    {
+      "userId": "10",
+      "userAnswer": "Use document.getElementById() para selecionar um elemento e alterar suas propriedades."
+    },
+    {
+      "userId": "11",
+      "userAnswer": "Experimente usar document.querySelector() para maior flexibilidade na seleção de elementos."
+    },
+    {
+      "userId": "12",
+      "userAnswer": "Você pode adicionar event listeners com addEventListener() para interatividade."
+    }
+  ]
+}]
