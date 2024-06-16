@@ -1,0 +1,98 @@
+.profile-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  width: 100%;
+  height: 90%;
+  gap: 2%;
+
+  color: #05445E;
+}
+
+.user-options-container {
+  display: flex;
+  flex-direction: column;
+  
+  height: 90%;
+  width: 20%;
+}
+
+.user-profile-pic-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.user-profile-pic-container img {
+  margin-top: 50px;
+  width: 70%;
+}
+
+.user-options h3 {
+  margin-left: 70px;
+  margin-top: 30px;
+  font-size: 120%;
+}
+
+.vertical-bar {
+  width: 2px;
+  height: 85%;
+  background-color: black;
+  color: #05445E;
+}
+
+.user-infos {
+  display: flex;
+  flex-direction: column;
+
+  width: 70%;
+  height: 90%;
+  gap: 50px;
+  color: #05445E;
+}
+
+.inputs-group-container {
+  display: flex;
+  flex-direction: column;
+
+  width: 50%;
+  gap: 10px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.info-item label{
+  width: 200px;
+}
+
+.info-item input{
+  width: 300px;
+  height: 30px;
+}
+
+.submit-button {
+  margin-top: 40px;
+  width: 150px;
+  height: 40px;
+  border: 1px solid #05445E;
+  border-radius: 5px;
+  background-color: #75e6da;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.delete-button {
+  margin-top: 40px;
+  width: 150px;
+  height: 40px;
+  border: 1px solid #5e0505;
+  border-radius: 5px;
+  background-color: #e67575;
+  cursor: pointer;
+  font-weight: 700;
+}

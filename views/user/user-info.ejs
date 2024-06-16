@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/base/base.css">
+    <link rel="stylesheet" href="/base/nav-bar.css">
+    <link rel="stylesheet" href="/user/css/profile.css">
+    <link rel="stylesheet" href="/base/base-font-lato.css">
+    <title>Document</title>
+  </head>
+  <body>
+
+    <nav class="home-navbar">
+      <a href="/home"><img class="home-navbar-img" src="/base/img/homepage-logo.png"
+          alt></a>
+      <form class="home-navbar-form" action="/courses/search">
+        <input name="search-course" type="text">
+        <button type="submit"></button>
+      </form>
+      <a href="/user/profile?page=personal-info">
+        <img class="home-navbar-profile-pic" src="/user/img/profile-pic.png"
+          alt>
+      </a>
+    </nav>
+
+    <main class="profile-container">
+      <div class="user-options-container">
+        <div class="user-profile-pic-container">
+          <img src="/user/img/profile-pic.png" alt>
+        </div>
+        <div class="user-options">
+          <a href="/user/profile?page=personal-info"><h3 class="lato-regular">INFORMAÇÕES PESSOAIS</h3></a>
+          <a href="/user/profile?page=user-security"><h3 class="lato-regular">SEGURANÇA</h3></a>
+          <a href="/user/profile?page=delete-account"><h3 class="lato-regular">ENCERRAR CONTA</h3></a>
+        </div>
+      </div>
+      <div class="vertical-bar"></div>
+
+      <% if (locals.page == 'personal-info' || !locals.page) { %>
+        <div class="user-infos">
+          <form action="/user/profile/update">
+            <input type="hidden" name="page" value="personal-info">
+            <div class="info-group">
+              <h2 class="lato-bold">INFORMAÇÕES BÁSICAS</h2>
+              <div class="inputs-group-container">
+
+                <div class="info-item">
+                  <label class="lato-light" for>Nome:</label>
+                  <input required name="name" type="text">
+                </div>
+
+                <div class="info-item">
+                  <label class="lato-light" for>Sobrenome:</label>
+                  <input required name="surname" type="text">
+                </div>
+
+                <div class="info-item">
+                  <label class="lato-light" for>CPF:</label>
+                  <input required name="cpf" type="text">
+                </div>
+
+              </div>
+            </div>
+            <div class="info-group">
+              <h2 class="lato-bold">REDES SOCIAIS</h2>
+              <div class="inputs-group-container">
+
+                <div class="info-item">
+                  <label class="lato-light" for>twiiter/</label>
+                  <input type="text">
+                </div>
+
+                <div class="info-item">
+                  <label class="lato-light" for>linkedin/in/</label>
+                  <input type="text">
+                </div>
+
+              </div>
+            <input type="submit" value="ATUALIZAR" class="submit-button">
+          </form>
+        </div>
+      <% } %>
+
+      <% if (page=='user-security')  { %>
+        <div class="user-infos">
+
+          <form action="/user/profile/update">
+            <input type="hidden" name="page" value="user-security">
+            <div class="info-group">
+              <h2 class="lato-bold">ALTERAR SENHA</h2>
+              <div class="inputs-group-container">
+
+                <div class="info-item">
+                  <label class="lato-light" for>Senha antiga:</label>
+                  <input name="lastPass" type="password">
+                </div>
+
+                <div class="info-item">
+                  <label class="lato-light" for>Nova senha:</label>
+                  <input name="newPass" type="password">
+                </div>
+
+                <div class="info-item">
+                  <label class="lato-light" for>Confirmar nova senha:</label>
+                  <input name="confirmPass" type="password">
+                </div>
+
+              </div>
+            </div>
+            <input type="submit" value="ATUALIZAR" class="submit-button">
+          </form>
+        </div>
+      <% } %>
+
+
+      <% if (page=='delete-account')  { %>
+        <div class="user-infos">
+
+          <form action="/user/profile/update">
+            <input type="hidden" name="page" value="delete-account">
+            <div class="info-group">
+              <h2 class="lato-bold">ENCERRAR CONTA</h2>
+              <div class="inputs-group-container">
+
+                <div class="info-item">
+                  <label class="lato-light" for>Nome completo:</label>
+                  <input name="fullName" type="text">
+                </div>
+
+                <div class="info-item">
+                  <label class="lato-light" for>Senha:</label>
+                  <input name="pass" type="text">
+                </div>
+
+                <div class="info-item">
+                  <label class="lato-light" for>Confirmar senha:</label>
+                  <input name="confirmPass" type="text">
+                </div>
+
+              </div>
+            </div>
+            <input type="submit" value="ENCERRAR CONTA" class="delete-button">
+          </form>
+        </div>
+      <% } %>
+
+
+
+
+
+    </main>
+
+  </body>
+</html>

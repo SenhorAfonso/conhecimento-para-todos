@@ -8,6 +8,7 @@ interface UserAttributes {
   username: string;
   profilePic?: string;
   email: string;
+  cpf: string;
   password: string;
   id: string;
   createdAt: Date;
@@ -20,6 +21,7 @@ class User extends Model<UserAttributes, UserCreationAttributes> implements User
   public id!: string;
   public fullName!: string;
   public username!: string;
+  public cpf!: string;
   public profilePic?: string;
   public email!: string;
   public password!: string;
@@ -34,6 +36,11 @@ User.init(
       allowNull: false,
     },
     username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+    cpf: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
